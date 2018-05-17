@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "mpfinalss",
+    "default": "deploytest13254"
+  }
+}

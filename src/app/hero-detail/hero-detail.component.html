@@ -1,0 +1,45 @@
+<h1> Hero Detail</h1>
+<div *ngIf="hero">
+
+<form (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+          <label> hero name:
+          <input matInput [(ngModel)]="hero.name" name="name">
+        </label>
+      </mat-card-title>
+      <mat-card-subtitle>    
+        <label> hero subtitle:
+        <input matInput [(ngModel)]="hero.subtitle" name="subtitle">
+      </label></mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{hero?.image}}">
+
+    <mat-card-content>
+
+      <!-- <progress value="0" max="100" id="uploader">0%</progress>
+      <input type="file" value="upload" id="fileButton"> -->
+
+        <label> hero image url:
+            <input matInput [(ngModel)]="hero.image" name="image">
+          </label>
+        <label> hero content:
+            <input matInput [(ngModel)]="hero.content" name="content">
+          </label>
+    </mat-card-content>
+
+  </mat-card>
+
+
+    <button type="submit" value="Submit" mat-raised-button color="primary"> save </button>
+
+    <button type="button" (click)="goBack()">go back</button>
+
+  </form>
+</div>
+<!-- 
+<ng-template #noHero>
+  <hr>
+  <h5> There is nothing to show </h5>
+</ng-template> -->

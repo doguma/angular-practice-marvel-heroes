@@ -1,0 +1,54 @@
+<br/>
+
+<div fxLayoutGap="5px" class="flex-container">
+  <div fxLayout.xs="column" *ngFor="let hero of heroes" class="flex-item">
+    <mat-card >
+      <mat-card-header>
+        <mat-card-title>
+          <h2>{{hero.name | uppercase}}</h2>
+        </mat-card-title>
+        <mat-card-subtitle>{{hero.subtitle}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{hero.image}}">
+      <mat-card-content>
+        <p>
+          {{hero.content}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="basic" (click)="gotodetail(hero.id)">edit</button>
+        <button mat-raised-button color="basic" (click)="deleteHero(hero)">delete</button>
+
+        <button mat-raised-button color="primary" *ngIf="(user | async)?.uid"  (click)="like(hero)">like</button>
+        
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+
+<br />
+<div>
+
+  <form (ngSubmit)="onSubmit()">
+
+    <label> hero name:
+      <input matInput [(ngModel)]="hero.name" name="name">
+    </label>
+    <br/>
+    <label> hero subtitle:
+      <input matInput [(ngModel)]="hero.subtitle" name="subtitle">
+    </label>
+    <br/>
+    <label> hero content:
+      <input matInput [(ngModel)]="hero.content" name="content">
+    </label>
+    <br/>
+
+    <button type="submit" value="Submit" mat-raised-button color="primary"> ADD HERO </button>
+
+  </form>
+
+</div>
+<br/>

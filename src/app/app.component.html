@@ -1,0 +1,13 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a class="no_text_deco" routerLink="/dashboard">Dashboard</a>
+    <span class="example-spacer"></span>
+    <a class="no_text_deco" *ngIf="!(user | async)?.uid" (click)="login()">login</a>
+    <a class="no_text_deco" *ngIf="(user | async)?.uid" (click)="logout()">logout</a>
+    <a class="no_text_deco" *ngIf="(user | async)?.uid" routerLink="/mypage">mypage</a>    
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+<app-messages></app-messages>
